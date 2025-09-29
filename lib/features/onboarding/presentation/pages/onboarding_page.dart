@@ -120,12 +120,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
               return Stack(
                 children: [
                   OnboardingImageSection(assetPath: item.imageAsset),
-
+                 if(item.brushAsset != null)
                   Positioned(
                     top: item.topPosition?.h ?? 54.h,
                     right: item.rightPosition?.w ?? 50.w,
                     child: Image.asset(
-                      item.brushAsset ?? AppAssets.brush,
+                      item.brushAsset!,
                       width: 138.w,
                     ),
                   ),

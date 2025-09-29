@@ -2,7 +2,6 @@
 import 'package:plant_app/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants/app_strings.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../domain/entities/onboarding_item.dart';
 
 class OnboardingItemsLocal {
