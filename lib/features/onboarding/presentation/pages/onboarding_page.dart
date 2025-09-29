@@ -62,15 +62,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
           },
         ),
         BlocListener<OnboardingBloc, OnboardingState>(
-          listenWhen: (p, c) => p.isPaywallVisible != c.isPaywallVisible,
+          listenWhen: (p, c) => p.effect != c.effect,
           listener: (context, state) async {
-            if (state.isPaywallVisible) {
-              final result = await context.push(AppRoute.paywall);
-              if (result == true) {
-                context.read<OnboardingBloc>().add(
-                  const OnboardingEvent.paywallClosed(),
-                );
-              }
+            if (state.effect == OnboardingEffect.navigateToPaywall) {
+               context.read<OnboardingBloc>().add(const OnboardingEvent.effectConsumed());
+  await context.push(AppRoute.paywall); // sadece bekle
+  context.read<OnboardingBloc>().add(const OnboardingEvent.paywallClosed());
             }
           },
         ),
@@ -98,7 +95,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             itemBuilder: (context, index) {
               final item = items[index];
               final isFirst = index == 0;
-              final isLast = index == count - 1;
 
               Widget footer;
               switch (item.footer) {
@@ -124,18 +120,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
               return Stack(
                 children: [
                   OnboardingImageSection(assetPath: item.imageAsset),
-                  if(index == 1)
+
                   Positioned(
-                    top: 54.h,
-                    right: 50.w,
-                    child: Image.asset(AppAssets.brush,width: 138.w,),
+                    top: item.topPosition?.h ?? 54.h,
+                    right: item.rightPosition?.w ?? 50.w,
+                    child: Image.asset(
+                      item.brushAsset ?? AppAssets.brush,
+                      width: 138.w,
+                    ),
                   ),
-                  if(index == 2)
-                  Positioned(
-                    top: 54.h,
-                    right: 90.w,
-                    child: Image.asset(AppAssets.brush,width: 138.w,),
-                  ),
+
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: AppSpacing.l.w),
                     child: Column(

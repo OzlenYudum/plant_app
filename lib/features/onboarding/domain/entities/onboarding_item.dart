@@ -10,6 +10,9 @@ class OnboardingItem {
   final FontWeight? baseWeight;
   final String imageAsset;
   final OnbFooter footer;
+  final String? brushAsset;
+  final double? topPosition;
+  final double? rightPosition;
 
   const OnboardingItem({
     required this.title,
@@ -19,5 +22,8 @@ class OnboardingItem {
     required this.imageAsset,
     required this.footer,
     this.baseWeight = FontWeight.w400,
+    this.brushAsset,
+    this.topPosition,
+    this.rightPosition,
   });
 }
