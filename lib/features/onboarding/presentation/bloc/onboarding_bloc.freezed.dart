@@ -392,7 +392,7 @@ String toString() {
 /// @nodoc
 mixin _$OnboardingState {
 
- int get pageIndex; bool get isPaywallVisible; OnboardingEffect? get effect;
+ int get pageIndex; OnboardingEffect? get effect;
 /// Create a copy of OnboardingState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -403,16 +403,16 @@ $OnboardingStateCopyWith<OnboardingState> get copyWith => _$OnboardingStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&(identical(other.isPaywallVisible, isPaywallVisible) || other.isPaywallVisible == isPaywallVisible)&&(identical(other.effect, effect) || other.effect == effect));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&(identical(other.effect, effect) || other.effect == effect));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pageIndex,isPaywallVisible,effect);
+int get hashCode => Object.hash(runtimeType,pageIndex,effect);
 
 @override
 String toString() {
-  return 'OnboardingState(pageIndex: $pageIndex, isPaywallVisible: $isPaywallVisible, effect: $effect)';
+  return 'OnboardingState(pageIndex: $pageIndex, effect: $effect)';
 }
 
 
@@ -423,7 +423,7 @@ abstract mixin class $OnboardingStateCopyWith<$Res>  {
   factory $OnboardingStateCopyWith(OnboardingState value, $Res Function(OnboardingState) _then) = _$OnboardingStateCopyWithImpl;
 @useResult
 $Res call({
- int pageIndex, bool isPaywallVisible, OnboardingEffect? effect
+ int pageIndex, OnboardingEffect? effect
 });
 
 
@@ -440,11 +440,10 @@ class _$OnboardingStateCopyWithImpl<$Res>
 
 /// Create a copy of OnboardingState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? pageIndex = null,Object? isPaywallVisible = null,Object? effect = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? pageIndex = null,Object? effect = freezed,}) {
   return _then(_self.copyWith(
 pageIndex: null == pageIndex ? _self.pageIndex : pageIndex // ignore: cast_nullable_to_non_nullable
-as int,isPaywallVisible: null == isPaywallVisible ? _self.isPaywallVisible : isPaywallVisible // ignore: cast_nullable_to_non_nullable
-as bool,effect: freezed == effect ? _self.effect : effect // ignore: cast_nullable_to_non_nullable
+as int,effect: freezed == effect ? _self.effect : effect // ignore: cast_nullable_to_non_nullable
 as OnboardingEffect?,
   ));
 }
@@ -530,10 +529,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int pageIndex,  bool isPaywallVisible,  OnboardingEffect? effect)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int pageIndex,  OnboardingEffect? effect)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OnboardingState() when $default != null:
-return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
+return $default(_that.pageIndex,_that.effect);case _:
   return orElse();
 
 }
@@ -551,10 +550,10 @@ return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int pageIndex,  bool isPaywallVisible,  OnboardingEffect? effect)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int pageIndex,  OnboardingEffect? effect)  $default,) {final _that = this;
 switch (_that) {
 case _OnboardingState():
-return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
+return $default(_that.pageIndex,_that.effect);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -571,10 +570,10 @@ return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int pageIndex,  bool isPaywallVisible,  OnboardingEffect? effect)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int pageIndex,  OnboardingEffect? effect)?  $default,) {final _that = this;
 switch (_that) {
 case _OnboardingState() when $default != null:
-return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
+return $default(_that.pageIndex,_that.effect);case _:
   return null;
 
 }
@@ -586,11 +585,10 @@ return $default(_that.pageIndex,_that.isPaywallVisible,_that.effect);case _:
 
 
 class _OnboardingState implements OnboardingState {
-  const _OnboardingState({this.pageIndex = 0, this.isPaywallVisible = false, this.effect});
+  const _OnboardingState({this.pageIndex = 0, this.effect});
   
 
 @override@JsonKey() final  int pageIndex;
-@override@JsonKey() final  bool isPaywallVisible;
 @override final  OnboardingEffect? effect;
 
 /// Create a copy of OnboardingState
@@ -603,16 +601,16 @@ _$OnboardingStateCopyWith<_OnboardingState> get copyWith => __$OnboardingStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&(identical(other.isPaywallVisible, isPaywallVisible) || other.isPaywallVisible == isPaywallVisible)&&(identical(other.effect, effect) || other.effect == effect));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&(identical(other.effect, effect) || other.effect == effect));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pageIndex,isPaywallVisible,effect);
+int get hashCode => Object.hash(runtimeType,pageIndex,effect);
 
 @override
 String toString() {
-  return 'OnboardingState(pageIndex: $pageIndex, isPaywallVisible: $isPaywallVisible, effect: $effect)';
+  return 'OnboardingState(pageIndex: $pageIndex, effect: $effect)';
 }
 
 
@@ -623,7 +621,7 @@ abstract mixin class _$OnboardingStateCopyWith<$Res> implements $OnboardingState
   factory _$OnboardingStateCopyWith(_OnboardingState value, $Res Function(_OnboardingState) _then) = __$OnboardingStateCopyWithImpl;
 @override @useResult
 $Res call({
- int pageIndex, bool isPaywallVisible, OnboardingEffect? effect
+ int pageIndex, OnboardingEffect? effect
 });
 
 
@@ -640,11 +638,10 @@ class __$OnboardingStateCopyWithImpl<$Res>
 
 /// Create a copy of OnboardingState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? pageIndex = null,Object? isPaywallVisible = null,Object? effect = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? pageIndex = null,Object? effect = freezed,}) {
   return _then(_OnboardingState(
 pageIndex: null == pageIndex ? _self.pageIndex : pageIndex // ignore: cast_nullable_to_non_nullable
-as int,isPaywallVisible: null == isPaywallVisible ? _self.isPaywallVisible : isPaywallVisible // ignore: cast_nullable_to_non_nullable
-as bool,effect: freezed == effect ? _self.effect : effect // ignore: cast_nullable_to_non_nullable
+as int,effect: freezed == effect ? _self.effect : effect // ignore: cast_nullable_to_non_nullable
 as OnboardingEffect?,
   ));
 }

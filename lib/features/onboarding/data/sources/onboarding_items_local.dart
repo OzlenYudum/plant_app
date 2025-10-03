@@ -5,7 +5,7 @@ import 'package:plant_app/constants/app_strings.dart';
 import '../../domain/entities/onboarding_item.dart';
 
 class OnboardingItemsLocal {
-  static List<OnboardingItem> get items => const [
+  static List<OnboardingItem> get items =>  [
     OnboardingItem(
       title: AppStrings.onboardingWelcomeTitle,
       subtitle: AppStrings.onboardingWelcomeSubtitle,
@@ -22,6 +22,9 @@ class OnboardingItemsLocal {
       footer: OnbFooter.dots,
       highlightWeight: FontWeight.w800,
       baseWeight: FontWeight.w500,
+      brushAsset: AppAssets.brush,
+      topPosition: 54,
+      rightPosition: 50,
     ),
     OnboardingItem(
       title: AppStrings.onboardingCareGuidesTitle,
@@ -30,6 +33,9 @@ class OnboardingItemsLocal {
       footer: OnbFooter.dots,
       highlightWeight: FontWeight.w800,
       baseWeight: FontWeight.w500,
+      brushAsset: AppAssets.brush,
+      topPosition: 54,
+      rightPosition: 90,
     ),
   ];
 }

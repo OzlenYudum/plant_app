@@ -36,14 +36,13 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     if (state.pageIndex < 2) {
       emit(state.copyWith(pageIndex: state.pageIndex + 1));
     } else {
-      emit(state.copyWith(isPaywallVisible: true));
+      emit(state.copyWith(effect: OnboardingEffect.navigateToPaywall));
     }
   }
 
 Future<void> _onPaywallClosed(_PaywallClosed event, Emitter<OnboardingState> emit) async {
   await _setOnboardingCompleted(true);
   emit(state.copyWith(
-    isPaywallVisible: false,
     effect: OnboardingEffect.navigateToHome,
   ));
 }
